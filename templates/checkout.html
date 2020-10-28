@@ -1,0 +1,208 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+
+{% block title %}
+	Oloja E-market | Checkout
+{% endblock %}
+
+{% block content %}
+<div id="all">
+      <div id="content">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <!-- breadcrumb-->
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="{% url 'shop:product_list' %}">Home</a></li>
+                  <li class="breadcrumb-item"><a href="{% url 'cart:cart_detail' %}">Shopping cart</a></li>
+                  <li aria-current="page" class="breadcrumb-item active">Checkout - Address</li>
+                </ol>
+              </nav>
+            </div>
+            <div id="checkout" class="col-lg-12">
+              <div class="box">
+                <form method="post" action=".">
+                	{% csrf_token %}
+                  <h1>Checkout</h1>
+                  <div class="nav flex-column flex-md-row nav-pills text-center"><a href="checkout1.html" class="nav-link flex-sm-fill text-sm-center active"> <i class="fa fa-map-marker">                  </i>Address</a></div><!--<a href="#" class="nav-link flex-sm-fill text-sm-center disabled"> <i class="fa fa-truck">                       </i>Delivery Method</a><a href="#" class="nav-link flex-sm-fill text-sm-center disabled"> <i class="fa fa-money">                      </i>Payment Method</a><a href="#" class="nav-link flex-sm-fill text-sm-center disabled"> <i class="fa fa-eye">                     </i>Order Review</a>-->
+                  <div class="content py-3">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="firstname">First name</label>
+                          <input id="firstname" type="text" name="first_name" class="form-control" required="true">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="lastname">Last name</label>
+                          <input id="lastname" type="text" name="last_name" class="form-control" required="true">
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /.row-->
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="phone">Telephone</label>
+                          <input id="phone" type="text" name="phone" class="form-control" required="true">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="email">E-mail Address</label>
+                          <input id="email" type="email" name="email" class="form-control" required="true">
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /.row-->
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="address">Residential Address</label>
+                          <input id="address" type="text" name="address" class="form-control" required="true">
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /.row-->
+                    <div class="row">
+                      <div class="col-md-6 col-lg-4">
+                        <div class="form-group">
+                          <label for="city">City</label>
+                          <input id="city" type="text" name="city" class="form-control" required="true">
+                        </div>
+                      </div>
+                      <div class="col-md-6 col-lg-4">
+                        <div class="form-group">
+                          <label for="zip">ZIP</label>
+                          <input id="zip" type="text" name="zip_code" class="form-control" required="true">
+                        </div>
+                      </div>
+                      <div class="col-md-6 col-lg-4">
+                        <div class="form-group">
+                          <label for="state">State</label>
+                          <input id="state" type="text" name="state" class="form-control" required="true">
+                        </div>
+                      </div>
+                    
+                      
+                    </div>
+                    <!-- /.row-->
+                    <div class="nav flex-column flex-md-row nav-pills text-center"><a href="checkout1.html" class="nav-link flex-sm-fill text-sm-center active"> <i class="fa fa-truck"></i>Delivery Method</a></div>
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="box shipping-method">
+                          <h4>Oloja Express</h4>
+                          <p>Get your goods delivered to your doorsteps</p>
+                          <div class="box-footer text-center">
+                            <input type="radio" name="delivery_method" value="express" required="true">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="box shipping-method">
+                          <h4>Oloja Pickup</h4>
+                          <p>Pick up your goods at Oloja office</p>
+                          <div class="box-footer text-center">
+                            <input type="radio" name="delivery_method" value="pickup" required="true">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="nav flex-column flex-md-row nav-pills text-center"><a href="checkout1.html" class="nav-link flex-sm-fill text-sm-center active"> <i class="fa fa-money"></i>Payment Method</a></div>
+                    
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="box payment-method">
+                          <h4>Flutter wave</h4>
+                          <p>Pay via Flutterwave gateway with various options</p>
+                          <div class="box-footer text-center">
+                            <input type="radio" name="payment_method" value="flutterwave" required="true">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="box payment-method">
+                          <h4>Paystack</h4>
+                          <p>Pay via Paystack gateway with various options</p>
+                          <div class="box-footer text-center">
+                            <input type="radio" name="payment_method" value="paystack" required="true">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="box payment-method">
+                          <h4>Cash on delivery</h4>
+                          <p>You pay when you get it.</p>
+                          <div class="box-footer text-center">
+                            <input type="radio" name="payment_method" value="pay_on_delivery" required="true">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="box payment-method">
+                          <h4>Crypto-pay</h4>
+                          <p>Pay to any  of our crypto wallet</p>
+                          <div class="box-footer text-center">
+                            <input type="radio" name="payment_method" value="crypto" required="true">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="box-footer d-flex justify-content-between"><a href="{% url 'cart:cart_detail' %}" class="btn btn-outline-secondary"><i class="fa fa-chevron-left"></i>Back to Basket</a>
+                    <button type="submit" class="btn btn-primary">Continue<i class="fa fa-chevron-right"></i></button>
+                  </div>
+                </form>
+              </div>
+              <!-- /.box-->
+            </div>
+            <!-- /.col-lg-9-->
+            {% comment %}
+            <div class="col-lg-3">
+              <div id="order-summary" class="card">
+                <div class="card-header">
+                  <h3 class="mt-4 mb-4">Order summary</h3>
+                </div>
+                <div class="card-body">
+                  <p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <tbody>
+                        <tr>
+                          <td>Order subtotal</td>
+                          <th>$446.00</th>
+                        </tr>
+                        <tr>
+                          <td>Shipping and handling</td>
+                          <th>$10.00</th>
+                        </tr>
+                        <tr>
+                          <td>Tax</td>
+                          <th>$0.00</th>
+                        </tr>
+                        <tr class="total">
+                          <td>Total</td>
+                          <th>$456.00</th>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /.col-lg-3-->
+            {% endcomment %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}
