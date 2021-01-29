@@ -1,6 +1,6 @@
 # AN E-COMMERCE DJANGO PROJECT. 
 
-This is an e-commerce django project with all the fundamental features of an online store. I named it Oloja
+Django ecommerce website with full-fledged backend features like mailing order to customers, printing order pdfs and managing asynchronous tasks.
 
 The templates used in the frontend is designed by https://boostrapious.com. 
 
