@@ -12,8 +12,11 @@ The templates are great for learning how to build an e-commerce website.
 virtualenv env
 source env/bin/activate
 pip install -r requirements.txt
+python manage.py makemigrations
+python manage.py migrate
 python manage.py runserver
 ```
+
 ## Follow the following steps to run the asynchronous task manager (Celery + RabbitMQ)
 
 1. Install RabbitMQ on Linux by executing the command below from the shell
